@@ -1,109 +1,198 @@
-# 面向金融长文本的证据推理 Agent
+<div align="center">
 
-面向金融长文档问答，围绕证据检索、上下文压缩与条款推理，支持模型驱动的定向补查与答案来源追溯。
+# Financial Research Agent
 
-相关团队参赛方案取得 **AFAC 2026 赛题四 B 榜第 35 名**（团队确认）。本仓库整理可复用组件和后续 Agent 扩展；比赛名次不代表扩展能力的评测结果，也不表示本仓库完整复现最高分提交流程。
+### 面向金融长文本的证据推理 Agent
 
-技术栈：Python 3.12 · Qwen · BM25/BM25F-lite · RAG · pytest
+从长文档中找到证据，在有限上下文中完成推理，让答案有据可查。
 
-## 核心能力
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white)](pyproject.toml)
+[![Qwen](https://img.shields.io/badge/LLM-Qwen-6F42C1?style=flat-square)](.env.example)
+[![AFAC](https://img.shields.io/badge/AFAC_2026-Track_4_%C2%B7_B_Rank_35-B8860B?style=flat-square)](#competition)
 
-- **检索与证据覆盖**：保留原方案 Doc-first、字段加权和文档覆盖组件。当前自由问答入口在指定文档范围内检索，不宣称完整接入原全库盲检流程。
-- **上下文压缩**：复用问题相关的连续原文摘录与选项证据窗口，按字符预算组织上下文；字符限制与实际 Token 统计分开记录。
-- **受限补查闭环**：模型识别证据缺口并提出查询，程序检查范围、重复和预算，追加证据后重新回答与复核；默认最多一次补查，无新增证据时停止。
-- **来源核验**：引用绑定文档版本与原文位置。可选 `span_id` 引用模式由程序回填原文，再进行引用检查与单独模型复核，不等同于保证语义正确。
-- **财务工具**：对受支持的年度财报核查期间、口径和单位，使用确定性计算返回原值、公式及来源；不支持任意版式或通用投研任务。
+[项目背景](#background) · [核心特性](#features) · [示例](#example) · [工作流程](#workflow) · [快速开始](#quickstart) · [使用文档](docs/usage.md)
 
-参赛阶段的跨文档条款比较与逐选项推理设计见[核心接入说明](docs/v45-core-integration-2026-09-14.md)及[原团队仓库](https://github.com/XxJjTt6/afac2026-financial-longtext-agent-team)。当前工程入口与原提交的关系见[来源说明](NOTICE.md)。
+</div>
 
-## 快速开始：无需比赛数据或 API 密钥
+---
 
-推荐 WSL/Linux、Python 3.12。以下命令仅安装依赖并运行离线程序，不调用模型。
+**Financial Research Agent** 是一个面向金融长文档问答的证据推理项目。它围绕多文档检索、上下文压缩与条款辨析组织证据，并通过模型驱动的定向补查和来源核验，将回答与原文关联起来。
+
+<a id="competition"></a>
+
+> **赛事成绩｜AFAC 2026 赛题四 B 榜第 35 名**
+>
+> 项目相关团队参赛方案取得上述成绩。本仓库整理核心组件与 Agent 工程扩展，原提交版本见[团队方案仓库](https://github.com/XxJjTt6/afac2026-financial-longtext-agent-team)。
+
+<a id="background"></a>
+
+## 为什么做这个项目
+
+金融年报、合同与保险条款中，回答问题所需的信息往往分散在不同文档和段落里。看似相同的表述，可能因适用主体、时间范围或例外条件不同而得出相反结论；把全文直接交给模型，又会带来大量冗余上下文与 Token 开销。
+
+[AFAC 2026 赛题四「金融长文本 Agent 的动态记忆压缩与高效问答挑战」](https://tianchi.aliyun.com/competition/entrance/532486)聚焦这些问题：在有限 Token 消耗下，完成金融长文档理解、证据检索、跨文档比较与条件推理。
+
+本项目沿着三个问题展开：**证据在哪里？哪些内容值得保留？当前证据足够回答吗？**
+
+<a id="features"></a>
+
+## 核心特性
+
+- **找全证据，而不只追求片段相关。** 原方案采用 Doc-first 分层检索与 BM25F-lite 字段加权，结合逐文档证据保底，处理全局 Top-K 集中于少数文档的问题。
+- **逐项辨析，而不混淆相似条款。** 原参赛方案围绕候选选项组织独立查询与证据窗口，逐项核对主体、限定条件和例外，再聚合答案。
+- **压缩上下文，保留可回查的原文。** 按关键词与数值加权选择连续文本窗口，结合去重、字符预算分配和实际 Token 统计组织输入。
+- **证据不足时，进行受限补查。** 模型提出定向查询，程序检查范围、重复与预算；保留旧证据并追加新片段，再次回答与复核。可选 `doc_id / span_id` 来源绑定，输出 Markdown 报告与 JSON 记录。
+
+当前 `answer` 入口在指定文档范围内运行；原全库盲检组件与逐选项参赛流程保留为来源能力，不等于已完整迁入默认入口。另提供受支持年度财报的[来源绑定与确定性计算工具](docs/financial-workflow-2026-09-14.md)。
+
+<a id="example"></a>
+
+## 一个例子：相似条款，不同结论
+
+> **问题：** 比较甲乙合同的提前终止通知期限及例外条件。
+
+仓库内置两份虚构合同的简短摘录，可直接运行检索与压缩，无需比赛数据或 API 密钥：
+
+| 来源 | 通知期限 | 原文中的例外条件 |
+| :--- | :--- | :--- |
+| `example_contract_a` · 第 1 页 | 提前 **30 日**书面通知 | 发生约定重大违约时，不受该通知期限限制 |
+| `example_contract_b` · 第 1 页 | 提前 **15 日**书面通知 | 本示例条款未另列通知期限的例外 |
+
+**如何解读：** 两份合同的一般通知期限不同；甲合同还明确规定了重大违约例外。乙合同的这段摘录未列出例外，并不等于整份合同一定不存在其他例外。
+
+这正是项目关注的区别：既找到“30 日”和“15 日”，也保留改变结论的条件与证据范围。若证据不足，则进入补查或返回缺口，而不是把缺少信息直接当作否定结论。
+
+*上表及解读为基于[合成示例](data/example/chunks.jsonl)整理的说明，不冒充模型实测输出。下面的快速开始会实际返回两处原文证据；完整模型问答需显式启用 Qwen。*
+
+<a id="workflow"></a>
+
+## 工作流程
+
+```mermaid
+flowchart LR
+    A["问题与文档范围"] --> B["检索与上下文压缩"]
+    B --> C["回答、引用检查与复核"]
+    C -->|可发布| D["带出处答案"]
+    C -->|证据缺口| E["模型生成补查查询"]
+    E --> F{"范围、重复与预算检查"}
+    F -->|允许补查| B
+    F -->|终止条件| G["返回缺口或停止状态"]
+    C -->|其他未通过状态| G
+    classDef input fill:#EFF6FF,stroke:#3B82F6,color:#172554
+    classDef core fill:#F0FDFA,stroke:#0D9488,color:#134E4A
+    classDef result fill:#FFFBEB,stroke:#D97706,color:#78350F
+    class A input
+    class B,C,E,F core
+    class D,G result
+```
+
+默认文本问答流程示意，财务工具分支见[详细设计](docs/core-research-2026-09-14.md)。补查保留旧证据并追加新片段；默认最多一次，重复查询、无新增证据或预算耗尽时停止。
+
+<a id="quickstart"></a>
+
+## 快速开始
+
+### 1. 安装
+
+建议使用 **Python 3.12 + Linux / WSL**。
 
 ```bash
 git clone https://github.com/M1kasali/financial-research-agent.git
 cd financial-research-agent
 python3 -m venv .venv
-.venv/bin/python -m pip install -e '.[dev]'
-.venv/bin/python -m pytest -q
-.venv/bin/ruff check src tests scripts
+source .venv/bin/activate
+pip install -e ".[dev]"
 ```
 
-仓库当前私有，克隆需要已获授权的 GitHub 账号。`requirements.lock.txt` 是开发环境版本快照；常规安装使用 `pyproject.toml`。
+仓库当前为私有，克隆需要访问权限。
 
-### 1. 检索与压缩真实执行，材料为合成示例
+### 2. 运行上面的合同示例
 
 ```bash
-.venv/bin/financial-agent catalog --chunks data/example/chunks.jsonl
-
-.venv/bin/financial-agent prepare \
+financial-agent prepare \
   --chunks data/example/chunks.jsonl \
   --query '比较甲乙合同的提前终止通知期限及例外条件' \
   --doc example_contract_a --doc example_contract_b
 ```
 
-输出为检索结果和压缩证据包，不是模型生成的最终答案。`data/example/` 内文档、公司与条款均为虚构，不来自比赛材料。
+返回结果节选：
 
-### 2. 离线问答协议演示
-
-```bash
-.venv/bin/python scripts/run_core_answer_smoke.py
+```json
+{
+  "status": "prepared",
+  "candidate_count": 2,
+  "selected_window_count": 2,
+  "rendered_chars": 238,
+  "model_calls": 0,
+  "answer_generated": false
+}
 ```
 
-脚本使用合成数据和预设模型响应，禁用网络，展示提取、拒答、澄清、计算转交、错误引用拒绝、预算终止和复核不通过七种情况。输出目录在 `experiments/runs/` 下；这是程序集成检查，**不是模型能力或准确率评测**。
+完整输出还包含原文窗口、文档 ID、页码与来源哈希。此步骤只检索和压缩，不调用模型。
 
-### 3. 查看受限补查与引用校验测试
-
-```bash
-.venv/bin/python -m pytest -q tests/test_core_research.py tests/test_citation_spans.py
-```
-
-以上测试也使用合成输入及模拟模型，不需要密钥。
-
-## 使用自己的文档
-
-将有权使用的材料转换为与 `data/example/chunks.jsonl` 相同的 JSONL 分块结构，放入已忽略的 `data/local/`。先通过 `catalog` 查看文档 ID，再用 `prepare` 检查证据。
-
-当前 `answer` 默认禁用模型。只有显式添加 `--execute` 和一个全新的 `--output-dir` 才读取本项目 `.env` 并发送问题及选中证据至配置的 Qwen 服务；不要将敏感材料放入未获批准的模型调用。
-
-如需在线问答，可手动将 `.env.example` 复制为 `.env`，填写自己的密钥，然后参考命令帮助：
+### 3. 体验离线问答流程
 
 ```bash
-.venv/bin/financial-agent answer --help
+python scripts/run_core_answer_smoke.py
 ```
 
-当前 CLI 显式限制为 `qwen3.7-flash` 与配置的官方 HTTPS 端点，使用前确认账号可用性。`--citation-mode span_id` 启用片段引用；`--no-follow-up` 关闭补查与财务工具转交，用于单次问答对照。费用限制基于保守估算预留，不是服务端账单硬上限。
+通过合成材料和预设模型响应，演示提取、拒答、澄清、计算转交、引用失败、预算终止与复核不通过七种情况。脚本禁用网络，生成的 Markdown / JSON 保存于 `experiments/runs/`；它检验程序流程，不衡量模型准确率。
 
-## 架构与边界
+<details>
+<summary><strong>接入自己的文档与 Qwen</strong></summary>
 
-默认问答入口：`CoreResearchEngine` → 指定范围检索与证据窗口 → `CoreAnswerEngine` 回答/引用检查/复核 → 按需补查或财务工具 → JSON 与 Markdown 报告。
+1. 按照 [JSONL 示例](data/example/chunks.jsonl)组织有权使用的文档分块，放入 `data/local/`。
+2. 将 `.env.example` 复制为 `.env`，填写自己的密钥。
+3. 通过 `financial-agent catalog --chunks YOUR_CHUNKS.jsonl` 查看文档 ID，先用 `prepare` 检查证据。
+4. 通过 `financial-agent answer --help` 查看问答参数。仅显式传入 `--execute` 与新的 `--output-dir` 才会读取密钥并请求模型。
 
-状态、证据和预算由程序维护；模型提出受限动作，不允许任意工具、网络操作或代码执行。旧 `ResearchRuntime` 的任务图与 SQLite 恢复保留在仓库中，但不是当前 `answer` 默认入口，也未完整接入新闭环。
+当前 CLI 使用 `qwen3.7-flash` 和配置的官方 Qwen 端点。在线执行会发送问题及选中证据，并产生模型费用；请确认数据权限与账号可用性。详细配置、预算和引用模式见[使用指南](docs/usage.md)。
 
-- [计算与补查闭环](docs/core-research-2026-09-14.md)
-- [问答与引用核验](docs/core-answer-2026-09-14.md)
-- [可见原文片段 ID](docs/citation-spans-2026-09-14.md)
-- [财务工具边界](docs/financial-workflow-2026-09-14.md)
-- [小规模真实开发对照](docs/core-comparison-2026-09-14.md)
-- [引用模式对照及失败记录摘要](docs/live-citation-comparison-2026-09-14.md)
-- [首次私有发布检查](docs/publication-checklist.md)
+</details>
 
-日期文档保留各阶段结果和限制，测试数量按当时版本记录；当前验收以最新测试为准。已知开发案例不等于独立准确率；没有公开标准答案的 B 榜不能由本地案例替代评测。结构化事实记忆、通用规划、生产服务与完整最高分复现均不作为已完成能力。
+## 验证与文档
 
-## 仓库内容与发布范围
+**本地离线回归：502 项通过**（2026-09-16）。首次发布同时检查了干净代码副本和安装后的打包产物，验证方式见[发布检查记录](docs/publication-checklist.md)。
+
+```bash
+python -m pytest -q
+ruff check src tests scripts
+```
+
+| 想了解什么 | 文档 |
+| :--- | :--- |
+| 如何安装、接入文档、启用模型 | [使用与运行指南](docs/usage.md) |
+| 补查如何触发、如何停止 | [计算与补查闭环](docs/core-research-2026-09-14.md) |
+| 引用如何映射回原文 | [原文片段 ID](docs/citation-spans-2026-09-14.md) |
+| 原参赛组件如何迁入 | [核心接入与来源核查](docs/v45-core-integration-2026-09-14.md) |
+| 已做过哪些真实开发实验 | [小规模闭环对照](docs/core-comparison-2026-09-14.md) · [引用模式对照](docs/live-citation-comparison-2026-09-14.md) |
+
+<details>
+<summary><strong>项目结构</strong></summary>
 
 ```text
-src/financial_agent/   当前应用与受限执行流程
-vendor/               保留来源记录的团队算法组件
-tests/                离线测试与迁入回归
-scripts/              合成演示、检查及本地实验工具
-data/example/         可随仓库分发的合成示例
-configs/              本地数据配置示例与回放目录索引
-docs/                 技术说明、来源清单与阶段结果
+financial-research-agent/
+├── src/financial_agent/   # 检索、问答、补查、计算与核验
+├── vendor/               # 原团队算法组件
+├── tests/                # 离线测试
+├── data/example/         # 合成示例
+├── scripts/              # 演示与实验辅助脚本
+├── configs/              # 配置示例
+└── docs/                 # 设计、使用和验证记录
 ```
 
-密钥、原始 PDF、比赛题库/语料、索引、运行响应、数据库、人工评测草案和个人求职材料不随首次提交上传。`configs/datasets.example.json` 保留历史数据路径示例，需要本地自行配置，不是下载入口。
+</details>
 
-`scripts/demo.py` 是本机历史真实运行的哈希校验回放，依赖未上传的 `experiments/runs/`，**克隆仓库后不能直接运行完整回放**；仅 `--list` 可列出案例。它不会在缺记录时自动请求模型。其他依赖比赛语料、人工草案或旧项目路径的实验脚本也不是快速开始入口。
+## 项目状态与来源
 
-当前为私有工程仓库，未授予开源许可证；公开前须另行确认团队代码及数据授权，详见 [NOTICE.md](NOTICE.md)。
+这是一个可运行的研究原型。比赛成绩对应原团队参赛方案；后续补查、工具与引用扩展有独立开发记录，尚不代表完整最高分复现或独立准确率评测。
+
+仓库不包含密钥、比赛原始材料和完整历史运行记录。结构化事实记忆与通用自主规划不作为已完成能力；完整使用边界见[使用指南](docs/usage.md)。
+
+团队代码来源及公开前的授权事项见 [NOTICE.md](NOTICE.md)。目前仓库保持私有，尚未授予开源许可证。
+
+---
+
+<div align="center">
+<sub>以证据组织上下文，以来源支撑结论。</sub>
+</div>
