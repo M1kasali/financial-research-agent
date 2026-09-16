@@ -22,7 +22,7 @@
 
 > **赛事成绩｜AFAC 2026 赛题四 B 榜第 35 名**
 >
-> 项目相关团队参赛方案取得上述成绩。本仓库整理核心组件与 Agent 工程扩展，原提交版本见[团队方案仓库](https://github.com/XxJjTt6/afac2026-financial-longtext-agent-team)。
+> 项目相关团队参赛方案取得上述成绩。本仓库整理核心组件与 Agent 工程扩展。
 
 <a id="background"></a>
 
