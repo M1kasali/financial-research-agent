@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "corpus_id": "afac-local-text-v1",
+  "documents": "../AFAC赛题四_团队方案_v1_20260712/processed_data_v1/documents.jsonl",
+  "chunks": "../AFAC赛题四_团队方案_v1_20260712/processed_data_v1/chunks.jsonl",
+  "questions_b": "../AFAC赛题四_团队方案_v1_20260712/upload_b/question_b",
+  "manual_devset": "../AFAC赛题四_团队方案_v1_20260712/devsets/answer_level_v1.jsonl",
+  "path_base": "project_root",
+  "limitations": ["Not confirmed as the complete final-B corpus", "Recorded raw PDF paths need migration", "Historical predictions are not gold labels"]
+}

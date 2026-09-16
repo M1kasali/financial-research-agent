@@ -1,0 +1,28 @@
+{
+  "mode": "recorded_real_run_replay",
+  "cases": [
+    {
+      "id": "growth",
+      "title": "合并营业收入同比：模型转交确定性计算",
+      "result": "experiments/runs/core-comparison-20260914T035041Z-0b60e05c/byd_growth-bounded_loop.json",
+      "sha256": "56966b9d31c98ee64dc8b8cc8b92d371be0690566d30d8122c400ed06a1c41b7",
+      "focus": "说明模型只提出财务任务参数；程序核对口径、期间和单位后计算，输出原值、公式与来源。"
+    },
+    {
+      "id": "followup",
+      "title": "母公司净利润：发现缺口后定向补查",
+      "result": "experiments/runs/core-comparison-20260914T035041Z-0b60e05c/byd_parent_profit-bounded_loop.json",
+      "sha256": "718db556b0b56f22dc501c523a68db7ef31eafaf2ab0508f67d61547ad87ed32",
+      "focus": "沿真实事件记录展示补查查询、新增窗口及财务取数；不要把单次成功外推为任意任务自主规划。"
+    },
+    {
+      "id": "clauses",
+      "title": "保险条款比较：原文片段引用与核验",
+      "result": "experiments/runs/live-citation-comparison-20260914T052235Z-cec27095/span_id.json",
+      "sha256": "b86d6fdd06c6f51c7c04144fd01587b490c1108e9e58958882d79b68e4790697",
+      "focus": "展示两产品条款各自引用，说明ID回填不会重写原文；否定性结论仅限指定条款范围，不是法律意见。",
+      "failure_result": "experiments/runs/live-citation-comparison-20260914T052235Z-cec27095/verbatim.json",
+      "failure_sha256": "e2006b5ec9b1f2d7a53a7a73ce0fd5fe2d1f45e2a82e9d5b2105acd6b025ee44"
+    }
+  ]
+}

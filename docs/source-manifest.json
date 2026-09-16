@@ -1,0 +1,550 @@
+{
+  "schema_version": 1,
+  "source_commits": {
+    "/home/m1kasa/repo/afac2026-financial-longtext-agent-team": "b8b6c20271bfc3b452af25474094625d456322e1",
+    "/home/m1kasa/repo/AFAC赛题四_团队方案_v1_20260712": "7ae876fd5b5c2d617e6c90ddd6374c87b5180e96"
+  },
+  "files": [
+    {
+      "target": "vendor/agent_team_b1/focused_reasoning_v11.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent_team_b1/focused_reasoning_v11.py",
+      "sha256": "94f67718fdbcf0681acc91aa0cd73e3eefcab21683779003ff292e0af7a1f518"
+    },
+    {
+      "target": "vendor/agent_team_b1/option_coverage_v13.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent_team_b1/option_coverage_v13.py",
+      "sha256": "36b0c4bd455062d8fc197d86b794b32be3beaa2bc94d364315ac927f68bf3ad4"
+    },
+    {
+      "target": "vendor/agent/__init__.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/__init__.py",
+      "sha256": "3f96ea8ae8deff56985857507e7644323afffa2f0b3cf6027610c17eef7e0c57"
+    },
+    {
+      "target": "vendor/agent/compress/__init__.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/compress/__init__.py",
+      "sha256": "cf3265628403d940cea9bc2c448a33be7f0700f8f97676afcd2958e9777c9a37"
+    },
+    {
+      "target": "vendor/agent/compress/rule_filter.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/compress/rule_filter.py",
+      "sha256": "5477aafb61813c891d6e16db990fca0a9c775fefe0980b150ef84955c729f2e2"
+    },
+    {
+      "target": "vendor/agent/config.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/config.py",
+      "sha256": "e5ad4f277370cc981d79bef7faf50faf38fb07912b0ae3f4bfd861967ac9c9cc"
+    },
+    {
+      "target": "vendor/agent/data/__init__.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/data/__init__.py",
+      "sha256": "aa553ad237982ab83e370526691a1b435dbc32cfaa7213dae58f6ac428740820"
+    },
+    {
+      "target": "vendor/agent/data/doc_registry.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/data/doc_registry.py",
+      "sha256": "1d0a560ad6594680bf29540d0ecf1e1bac31c282925a9cecba06cc20a0dac57f"
+    },
+    {
+      "target": "vendor/agent/data/document_aliases.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/data/document_aliases.py",
+      "sha256": "aea7065ae1cdd8b0b9c2cfe8f58113643496452e8e067e42b44392cfb822f155"
+    },
+    {
+      "target": "vendor/agent/data/questions.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/data/questions.py",
+      "sha256": "097c105975407a7e03e73e2cbba0617e3205e50619698160801a4b4d9ed5f4ed"
+    },
+    {
+      "target": "vendor/agent/domain/coverage_rules.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/domain/coverage_rules.py",
+      "sha256": "654b275d4e801f1ec22f0bb74f72187096a36ed2683ed6e2f73cfb58db368194"
+    },
+    {
+      "target": "vendor/agent/domain/financial_reports.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/domain/financial_reports.py",
+      "sha256": "a46991df5c526b6338c9a43dd9269bd2cb397b7fd8fd5225280cbfb6e9d0087c"
+    },
+    {
+      "target": "vendor/agent/evaluation/__init__.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/evaluation/__init__.py",
+      "sha256": "6e58e08687bffc5e82b358cc13686976d195aff9897b9e4c396680bdfc32f667"
+    },
+    {
+      "target": "vendor/agent/evaluation/active_probe.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/evaluation/active_probe.py",
+      "sha256": "057e8e8c6a29fbd23d4193d7886d510327168bc67b5bcf8bf48a3b2bf0200f9b"
+    },
+    {
+      "target": "vendor/agent/evaluation/answer_devset.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/evaluation/answer_devset.py",
+      "sha256": "bf772ba4dd54ad7b9ee6a88037f3bcba9990ea9e44482cee739c928880e3df5e"
+    },
+    {
+      "target": "vendor/agent/evaluation/claim_consistency.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/evaluation/claim_consistency.py",
+      "sha256": "dfd15ba06ff554bf55073bc97754e4c9fbd490ae7c2335865f62d4dc8d00c5f6"
+    },
+    {
+      "target": "vendor/agent/evaluation/label_evidence.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/evaluation/label_evidence.py",
+      "sha256": "0bf46f47545a19f9635c9fca3fbf79a2331efb2d6116b81b792b4fad467ff558"
+    },
+    {
+      "target": "vendor/agent/evaluation/leaderboard_constraints.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/evaluation/leaderboard_constraints.py",
+      "sha256": "d1a92e665a15e5bc85b81428eb09ff2da92476553316832a28547c99cb859672"
+    },
+    {
+      "target": "vendor/agent/evaluation/leaderboard_registry.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/evaluation/leaderboard_registry.py",
+      "sha256": "3d9131b16c50fd9c84e8622150831e632047547f0a66a89238f52f2c09655612"
+    },
+    {
+      "target": "vendor/agent/evaluation/option_consensus.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/evaluation/option_consensus.py",
+      "sha256": "4055c8c1aef4cee910ec6697e018c1ebf754c8c89c05684d2de25f223eb4ddcd"
+    },
+    {
+      "target": "vendor/agent/evaluation/residual_profiles.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/evaluation/residual_profiles.py",
+      "sha256": "e1cfe76c319be3b682ceeefc0ae69749b8b39138f901ce793a085af5745c60df"
+    },
+    {
+      "target": "vendor/agent/evaluation/review_overrides.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/evaluation/review_overrides.py",
+      "sha256": "3bbb02a7d0b32cb681187353aab14c3a3f796a12c7d5bfb37c2f785d190fdd72"
+    },
+    {
+      "target": "vendor/agent/evaluation/score_diagnostics.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/evaluation/score_diagnostics.py",
+      "sha256": "f6208a19bdbdd680866db3152e315a0452ce849a6ec0d7bc511e1c89853ee565"
+    },
+    {
+      "target": "vendor/agent/evaluation/selective_merge.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/evaluation/selective_merge.py",
+      "sha256": "d0f1f5adc49e46a97d321cf0479887b9adf980cb13df6cd209e2cd74e4516e6f"
+    },
+    {
+      "target": "vendor/agent/index/__init__.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/index/__init__.py",
+      "sha256": "7924eb5d88895e6d741deb331f9f1041775ee69844607532ace32cdbb42471a7"
+    },
+    {
+      "target": "vendor/agent/index/bm25.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/index/bm25.py",
+      "sha256": "2c2ba591f04960c2a63cccf9e90b960bdd8334c43075a96d9bfd75de97666875"
+    },
+    {
+      "target": "vendor/agent/index/build.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/index/build.py",
+      "sha256": "451eaa06a4e5c06a1e79245fd2595a7f793da143aed2355a494fa501c6addcb6"
+    },
+    {
+      "target": "vendor/agent/index/document_index.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/index/document_index.py",
+      "sha256": "449d1b4f396a2536fc2f51f4c7e5c2197f50a542aec5a46fdc914f080a46178f"
+    },
+    {
+      "target": "vendor/agent/index/tokenizer.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/index/tokenizer.py",
+      "sha256": "e365fce0a8568123a83f187497dfc58e0d800af9c13964ac403664ef606611f3"
+    },
+    {
+      "target": "vendor/agent/io/__init__.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/io/__init__.py",
+      "sha256": "5761b14005299e78b90d9e3a75837a7e2a87bb495ee397703f0674bddd2d7c41"
+    },
+    {
+      "target": "vendor/agent/io/jsonl.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/io/jsonl.py",
+      "sha256": "493a9e98b92febf26aaf385e8f248eeaa904a962653750a88fb81c1a0b2c16fb"
+    },
+    {
+      "target": "vendor/agent/io/output_layout.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/io/output_layout.py",
+      "sha256": "207ac518166f729cbcd17459259f86d858b67924a3991129ca7e821b21ed0bf1"
+    },
+    {
+      "target": "vendor/agent/io/submission.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/io/submission.py",
+      "sha256": "941836667085227222e181a468ee8ca8948f0f0a51f68fc7c5c051120de2cee4"
+    },
+    {
+      "target": "vendor/agent/llm/__init__.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/llm/__init__.py",
+      "sha256": "6c34a07a2da9d07661f125c594d9583eb5ab7d3eeaf17ebc4b7741692d26454f"
+    },
+    {
+      "target": "vendor/agent/llm/qwen_client.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/llm/qwen_client.py",
+      "sha256": "f49fd02052355caa9934ffa388095dfff63283ab72e1a8b55f8aef4262f11bee"
+    },
+    {
+      "target": "vendor/agent/llm/token_tracker.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/llm/token_tracker.py",
+      "sha256": "60b48239cc719fcde9cb66d8100f6d33c4d976f38fa904ed6ba2ea1162691d74"
+    },
+    {
+      "target": "vendor/agent/local_settings.example.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/local_settings.example.py",
+      "sha256": "282e3f75f71c506bbd25b4afcb5b67c8d73cb9e1c5d7e9fdf37abf1d878cc989"
+    },
+    {
+      "target": "vendor/agent/preprocess/__init__.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/preprocess/__init__.py",
+      "sha256": "5e5d27e80c0b5e965cf0b6ecd7ed96b82733079741d8c61aedb4d8a532e5afb4"
+    },
+    {
+      "target": "vendor/agent/preprocess/chunkers.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/preprocess/chunkers.py",
+      "sha256": "a2474e57e0d4ce4abfba5d190019dd8a49065dfe06c037537fbae6f1f7edc2a8"
+    },
+    {
+      "target": "vendor/agent/preprocess/docling_adapter.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/preprocess/docling_adapter.py",
+      "sha256": "5c2e79874a9c7a409b111395c32aff2866c499e6c5dbdbff3d1c83b45a3dc383"
+    },
+    {
+      "target": "vendor/agent/preprocess/domain_cleaning.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/preprocess/domain_cleaning.py",
+      "sha256": "f3a468e8e4e539841d7b1f6c8302371a514625c0de8190fef6d5b53d0c585e3b"
+    },
+    {
+      "target": "vendor/agent/preprocess/domain_indexing.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/preprocess/domain_indexing.py",
+      "sha256": "e7a59eeb7f84b12c5baee6124f9d1d6614316bd36b266b561a011db446277612"
+    },
+    {
+      "target": "vendor/agent/preprocess/domain_rules.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/preprocess/domain_rules.py",
+      "sha256": "3aa4bce2db05c15edfea03c9f2866e0d1ae8691ddffb6ac2f55cc81f36f00f3c"
+    },
+    {
+      "target": "vendor/agent/preprocess/extractors.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/preprocess/extractors.py",
+      "sha256": "c66c86e48e02c480cf650c184ff6908f042eabc592483a552f2c3474b0bf8cab"
+    },
+    {
+      "target": "vendor/agent/preprocess/financial_rows.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/preprocess/financial_rows.py",
+      "sha256": "c0c5ea94ce6c88dc4ef1db21e66d30b6bfb49aa5aae4bd04ed5bdc380543b108"
+    },
+    {
+      "target": "vendor/agent/preprocess/hierarchical_chunking.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/preprocess/hierarchical_chunking.py",
+      "sha256": "25904f94b376524489b45afd9e3ab76e60440ed89ad1c1a2e23acf20f76455eb"
+    },
+    {
+      "target": "vendor/agent/preprocess/layout_pdf.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/preprocess/layout_pdf.py",
+      "sha256": "f3a2ed4079d5bd98baaf5537527d898dfd9fe6f55deee1bbadd651a9a1ebd042"
+    },
+    {
+      "target": "vendor/agent/preprocess/normalization.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/preprocess/normalization.py",
+      "sha256": "8eade1ed9e497b4d66e5cd4350c6947e2cfe2c2c0f76f253c5b49ad557fa1fff"
+    },
+    {
+      "target": "vendor/agent/preprocess/pipeline.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/preprocess/pipeline.py",
+      "sha256": "a66bf080fe1eda0077abe5df2b14ab8e5c5ca57f69d32393c5d11eb45e4cc2fa"
+    },
+    {
+      "target": "vendor/agent/preprocess/profile.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/preprocess/profile.py",
+      "sha256": "199dfd760866d57512fe0f6dacc812967fedba5781f3b886b0f3fc67292ed47c"
+    },
+    {
+      "target": "vendor/agent/reasoning/__init__.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/__init__.py",
+      "sha256": "a640b5ce65930e2945ec7292cf9690c07a900a171d08cd53f6596e37b5aef88c"
+    },
+    {
+      "target": "vendor/agent/reasoning/answer_parser.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/answer_parser.py",
+      "sha256": "bdff904acf54abfeb180ac638f681aa9fa2a2758f6c9f0e46ebeb85f7496e8d6"
+    },
+    {
+      "target": "vendor/agent/reasoning/calculation_dsl.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/calculation_dsl.py",
+      "sha256": "952985f6aabc8befad458987784445b03407d4e622e8db497b06cde23918d659"
+    },
+    {
+      "target": "vendor/agent/reasoning/calculator.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/calculator.py",
+      "sha256": "2a2dd38a3060e3281317e3d4cf61866a22d8286fbb78d83cbcee9de8ebdf7ebf"
+    },
+    {
+      "target": "vendor/agent/reasoning/claim_set_verifier.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/claim_set_verifier.py",
+      "sha256": "ca81828944e49266aa5d0d04595ce18bdafc077977e56392afae5dd1df78c4da"
+    },
+    {
+      "target": "vendor/agent/reasoning/claim_verifier.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/claim_verifier.py",
+      "sha256": "078d748e83ba5319abf8806fe4dc24528359eceb8a3d3ddb68b210c8cebda37c"
+    },
+    {
+      "target": "vendor/agent/reasoning/evidence_contract.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/evidence_contract.py",
+      "sha256": "4de5d16d3aa92067c4ea53f4417247dede44ae0e29d2ef10120034b8cc5ab5a9"
+    },
+    {
+      "target": "vendor/agent/reasoning/exhaustive_verifier.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/exhaustive_verifier.py",
+      "sha256": "3ef7c5d63699c4a67dfeb9881d75a75f82fbf43087afc6f566e0733129c409cc"
+    },
+    {
+      "target": "vendor/agent/reasoning/fact_ledger.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/fact_ledger.py",
+      "sha256": "c7baca3d343544a82154e4617e8ca194753184f4e72e5d782b32afa95fc200d7"
+    },
+    {
+      "target": "vendor/agent/reasoning/logicrag.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/logicrag.py",
+      "sha256": "82f8a31b4232ca613f9d9a572f8f02597d661372d57695e09bf5458098edd0cb"
+    },
+    {
+      "target": "vendor/agent/reasoning/multi_logicrag.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/multi_logicrag.py",
+      "sha256": "8041ba9524d2212fc7594fd3dfdefbaffe3d9ab4c580ed87ab04be51b72bbdac"
+    },
+    {
+      "target": "vendor/agent/reasoning/option_matrix.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/option_matrix.py",
+      "sha256": "7087595788c2829a07bc09b10283a34edd31d1b3ed19ab115e78ba230ecf4fe6"
+    },
+    {
+      "target": "vendor/agent/reasoning/precise_verifier.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/precise_verifier.py",
+      "sha256": "b02e2b4aebb1bdf2679cf267530184ecf46e4130c9b480c0ba12207743ffdb00"
+    },
+    {
+      "target": "vendor/agent/reasoning/prompts.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/prompts.py",
+      "sha256": "45135af4d282710f4fda776fd15dafc4c80c61d29d29d009c373431a24926e25"
+    },
+    {
+      "target": "vendor/agent/reasoning/question_envelope.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/question_envelope.py",
+      "sha256": "7adf1a3177accdeff18d06e5b3b818fbe7b9c86779e1cfaee65e9e71a93ca027"
+    },
+    {
+      "target": "vendor/agent/reasoning/result_reconciler.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/result_reconciler.py",
+      "sha256": "fffc8a523b8833d8d0a737776c7873e1ef56db411989454bdcb15531bc5b37d2"
+    },
+    {
+      "target": "vendor/agent/reasoning/retrieval_refiner.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/retrieval_refiner.py",
+      "sha256": "517e732e5d9c4c93d1ba4dff8d7ccc57d14a878d5beb7e68cc32bada968430ae"
+    },
+    {
+      "target": "vendor/agent/reasoning/solver.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/reasoning/solver.py",
+      "sha256": "155d4df34a77eece1060bb9f5c086508cccb58f9abf67205855a6d5f216ac31d"
+    },
+    {
+      "target": "vendor/agent/retrieve/__init__.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/__init__.py",
+      "sha256": "671d5c1842992631a7fc9c103a2caa93daa9345135da0147bb443931e4fcc643"
+    },
+    {
+      "target": "vendor/agent/retrieve/claim_retrieval.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/claim_retrieval.py",
+      "sha256": "746688af1982d1e8cafdd7cd04935960f203ecf82ec3bd089eec6924f23519b6"
+    },
+    {
+      "target": "vendor/agent/retrieve/claims.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/claims.py",
+      "sha256": "ef604b1e09d47aa62bf99b8756041379ce7de030ad9a14f9c126863db2d5a054"
+    },
+    {
+      "target": "vendor/agent/retrieve/context.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/context.py",
+      "sha256": "568be35669b6c202585ca0d848687f948c9ab05971f17cb2c08cc5d80b67a0cb"
+    },
+    {
+      "target": "vendor/agent/retrieve/coverage.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/coverage.py",
+      "sha256": "060614dcb36254432f03e48240ecbba7aa730d525dfb58a2f052f79bfb2e4975"
+    },
+    {
+      "target": "vendor/agent/retrieve/doc_first.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/doc_first.py",
+      "sha256": "66aa9d1610bb4c6e6ee0b2b0a34d49c6e990bf4c23b9ddb327fa335459e6909b"
+    },
+    {
+      "target": "vendor/agent/retrieve/evidence_selection.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/evidence_selection.py",
+      "sha256": "aaf6b865d8178f82922d29857ee0bbce31d8454a4b4de884a6e6b038d96767d6"
+    },
+    {
+      "target": "vendor/agent/retrieve/expansion.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/expansion.py",
+      "sha256": "df8932ba396c56c8bfa5889a4af32ea66cf96412e004af9dd5fb0850f2450a2b"
+    },
+    {
+      "target": "vendor/agent/retrieve/fusion.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/fusion.py",
+      "sha256": "8d69242cb80eabc7ed3abd66639295234c498c79c024c5979e5768a545895037"
+    },
+    {
+      "target": "vendor/agent/retrieve/metrics.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/metrics.py",
+      "sha256": "f3f0e11d9540f3faf89c6fa9d7d675e5f1f64f17131223e6466433d86c1b9302"
+    },
+    {
+      "target": "vendor/agent/retrieve/option_retrieval.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/option_retrieval.py",
+      "sha256": "ba0e6b2580a410924d549912b2236f65126e360b8a4b113a7a6357fad0425918"
+    },
+    {
+      "target": "vendor/agent/retrieve/probe.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/probe.py",
+      "sha256": "fc267c258179756fc499b15410a10e7d24367004ae29e44aec9adc4a83b8d212"
+    },
+    {
+      "target": "vendor/agent/retrieve/probe_cases.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/probe_cases.py",
+      "sha256": "e74570be1385d14d21b0d9df94acd5d69ed408ee97c15b5aa2ddc371f31df78b"
+    },
+    {
+      "target": "vendor/agent/retrieve/query.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/query.py",
+      "sha256": "13cf01de56707ca13ef4f2242445579f6e047229cd0c6e5bc8c7929fbbbc10f8"
+    },
+    {
+      "target": "vendor/agent/retrieve/rerank.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/rerank.py",
+      "sha256": "a906439daf4527c38a22d0280083c11cefeb03f41eaab56aafef8fa35b6edbe2"
+    },
+    {
+      "target": "vendor/agent/retrieve/retriever.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/retriever.py",
+      "sha256": "ca69d896dd3f5a65dedecabcdbdcda3320ac111b6a9ebf6184c1862029d89876"
+    },
+    {
+      "target": "vendor/agent/retrieve/structure_navigator.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/structure_navigator.py",
+      "sha256": "9359e84e750fcbef2eca6ff5a66fff028f0c21fc2c44300fed9438dc02514157"
+    },
+    {
+      "target": "vendor/agent/retrieve/structured_queries.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/structured_queries.py",
+      "sha256": "c6f860f8cee76811259c4d01e14656d2ff1ddfc45c5e41b7e225f082f1be3869"
+    },
+    {
+      "target": "vendor/agent/retrieve/targets.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/targets.py",
+      "sha256": "2647fab3738f37f4c721007192d464a42bb45b3a1261495f77a8823f32f15a7e"
+    },
+    {
+      "target": "vendor/agent/retrieve/variants.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/variants.py",
+      "sha256": "932be7bea3d3746dc288374ebc3491e924ebfff58c1d7c525dc1548ba3dc4cee"
+    },
+    {
+      "target": "vendor/agent/retrieve/verification_queries.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/verification_queries.py",
+      "sha256": "fa91891277c1f39961bebf133741e141b323680d5e94ca183097f9d37aade630"
+    },
+    {
+      "target": "vendor/agent/retrieve/verification_rerank.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/retrieve/verification_rerank.py",
+      "sha256": "4b7912a78886d07065d9af7111757be6fe9b398420b455a59fade9d9c8afd144"
+    },
+    {
+      "target": "vendor/agent/runtime/__init__.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/runtime/__init__.py",
+      "sha256": "f082cd51df0ccfe221c239b59ea10a576d41b308ba1255e7fe5b2ae1e9c87103"
+    },
+    {
+      "target": "vendor/agent/runtime/logicrag_config.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/runtime/logicrag_config.py",
+      "sha256": "85c4477f27777013e1e6eefea57df0372f8b0ec5bd8e86ade15b8d4ddf3a5100"
+    },
+    {
+      "target": "vendor/agent/runtime/mode_overrides.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/runtime/mode_overrides.py",
+      "sha256": "8b6eaf940fe179ede99026e4cbcbc7128bcf31b91e57103e55cdb482ff11e720"
+    },
+    {
+      "target": "vendor/agent/runtime/parallel.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/runtime/parallel.py",
+      "sha256": "20392cf645481cea49053725668b2afc21806196348187253aa5b53bfc8e2d61"
+    },
+    {
+      "target": "vendor/agent/runtime/process_guard.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/runtime/process_guard.py",
+      "sha256": "43eeb8a38410ea05a7215007498b0affe97491618402ded6a466de2b8e798c91"
+    },
+    {
+      "target": "vendor/agent/runtime/strategy_contract.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/runtime/strategy_contract.py",
+      "sha256": "aeed58441cabf773a2d9eda4590b16a6d94dd8cc89cb5ca56343889cea76f584"
+    },
+    {
+      "target": "vendor/agent/schemas.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent/schemas.py",
+      "sha256": "ae1f1dfcc1c69b4d68b60759793a6b2c87a2d3be0edd56370e885c9c1ab2515b"
+    },
+    {
+      "target": "vendor/agent_team_b1/__init__.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent_team_b1/__init__.py",
+      "sha256": "e6580d34c935fe8b7a114ad445beb1328632f3d4f66c6657715ec715c379276d"
+    },
+    {
+      "target": "vendor/agent_team_b1/questions_v1.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent_team_b1/questions_v1.py",
+      "sha256": "4e65f6472304a3a6f36dd8c684a58bc6ab0dfcb057d404a9e0668409a7b922ca"
+    },
+    {
+      "target": "vendor/agent_team_b1/retrieval_v1.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent_team_b1/retrieval_v1.py",
+      "sha256": "f7df2f8b9c52978c5312adf91d2eb562fa782fedefb71a97583050a67adb1d9c"
+    },
+    {
+      "target": "vendor/agent_team_b1/solver_v1.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent_team_b1/solver_v1.py",
+      "sha256": "aac6506c0816ffd3d7e286a456c790b6562e438289d2e703b362d93039471aa8"
+    },
+    {
+      "target": "vendor/agent_team_b1/submission_v1.py",
+      "origin": "/home/m1kasa/repo/afac2026-financial-longtext-agent-team/agent_team_b1/submission_v1.py",
+      "sha256": "fbbe37c56129d4f4f23baf62be0061f831bd1726bd55f06c318f59d3646671f2"
+    },
+    {
+      "target": "vendor/agent_team_v7/__init__.py",
+      "origin": "/home/m1kasa/repo/AFAC赛题四_团队方案_v1_20260712/agent_team_v7/__init__.py",
+      "sha256": "38c96339e664ab1f59a06c9d5f373076729ea54aca844da074f3219ba08e32f2"
+    },
+    {
+      "target": "vendor/agent_team_v7/adaptive_blind.py",
+      "origin": "/home/m1kasa/repo/AFAC赛题四_团队方案_v1_20260712/agent_team_v7/adaptive_blind.py",
+      "sha256": "abcfa3a7cd049fae49631a459e6e1f838ab71e2feb20d71214cac78536008ab6"
+    },
+    {
+      "target": "vendor/agent_team_v9/__init__.py",
+      "origin": "/home/m1kasa/repo/AFAC赛题四_团队方案_v1_20260712/agent_team_v9/__init__.py",
+      "sha256": "3de24fdb1e789f7ad1fae015321ca370badb704fac5a006136d141a2de2a2498"
+    },
+    {
+      "target": "vendor/agent_team_v9/option_coverage_index.py",
+      "origin": "/home/m1kasa/repo/AFAC赛题四_团队方案_v1_20260712/agent_team_v9/option_coverage_index.py",
+      "sha256": "04b3f0fc22868463ce469a602140574e6a436ea8584a138048672f4130c71d8b"
+    },
+    {
+      "target": "tests/legacy/test_fact_ledger.py",
+      "origin": "/home/m1kasa/repo/AFAC赛题四_团队方案_v1_20260712/tests/test_fact_ledger.py",
+      "sha256": "acf2ba7e7009c575078804ee3d1221890c55805d18712a94000c894701658a94"
+    },
+    {
+      "target": "tests/legacy/test_calculation_dsl.py",
+      "origin": "/home/m1kasa/repo/AFAC赛题四_团队方案_v1_20260712/tests/test_calculation_dsl.py",
+      "sha256": "f85e4b8683e0bf6f38110612cabb1a8e9efcedd5bd069185634b50b380ac3f62"
+    }
+  ],
+  "note": "Files reflect working-tree bytes, not necessarily committed contents. No data or secrets copied."
+}
